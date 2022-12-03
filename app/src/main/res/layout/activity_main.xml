@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/title_bar"/>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPage"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_weight="1"
+    >
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/main_tab"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/white"
+            android:layout_height="48dp"
+
+            app:tabSelectedTextColor="#069497"
+            android:layout_width="match_parent"
+            app:tabTextColor="@color/black">
+        <com.google.android.material.tabs.TabItem
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:text="@string/tab0"
+        >
+        </com.google.android.material.tabs.TabItem>
+        <com.google.android.material.tabs.TabItem
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:text="@string/tab1"
+        >
+        </com.google.android.material.tabs.TabItem>
+        <com.google.android.material.tabs.TabItem
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:textSize="12sp"
+                android:text="@string/tab2"
+        >
+        </com.google.android.material.tabs.TabItem>
+    </com.google.android.material.tabs.TabLayout>
+
+
+</LinearLayout>

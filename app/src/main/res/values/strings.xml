@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="test_2">Hello World !</string>
+    <string name="test">你好 世界 !</string>
+    <string name="butten">点我跳转</string>
+    <string name="xiangDui">我是相对布局</string>
+    <string name="SXB">你好 宋小宝!</string>
+    <string name="gundong">滚动</string>
+    <string name="list">我是列表布局</string>
+    <string name="changeTitle">修改标题</string>
+    <string name="jisuan">计算器</string>
+    <string name="phone">拨打电话</string>
+    <string name="send">传送数据</string>
+    <string name="title">九价摇号</string>
+    <string name="tab0">设置</string>
+    <string name="tab1">首页</string>
+    <string name="tab2">我的</string>
+</resources>

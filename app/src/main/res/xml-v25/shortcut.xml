@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+            android:shortcutId="static1"
+            android:enabled="true"
+            android:shortcutLongLabel="@string/butten"
+            android:shortcutShortLabel="@string/send">
+        <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.example.myapplication.Layout3"
+                android:targetPackage="com.example.myapplication" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+
+    <shortcut
+            android:enabled="true"
+            android:shortcutId="static2"
+            android:shortcutLongLabel="@string/app_name"
+            android:shortcutShortLabel="@string/jisuan">
+        <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.example.myapplication.MainActivity"
+                android:targetPackage="com.example.myapplication" />
+    </shortcut>
+
+</shortcuts>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+>
+    <View android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:id="@+id/view"
+
+    />
+    <Button android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="48sp"
+            android:id="@+id/changeShape"
+            android:text="改变形状"
+            android:layout_height="wrap_content"
+    />
+    <Switch android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jisuan"
+            android:textSize="39dp"
+            android:paddingLeft="10dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml"/>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+
+              android:text="请选则您的性别"
+              android:textSize="30dp"
+              android:padding="10dp"
+
+    />
+    <RadioGroup android:id="@+id/radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+
+    >
+        <RadioButton android:id="@+id/man"
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:text="男生"
+                     android:textSize="20dp"
+        />
+        <RadioButton android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:text="女生"
+                     android:textSize="20dp"
+                     android:id="@+id/woman"
+        />
+        <RadioButton android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:text="其他"
+                     android:textSize="20dp"
+                     android:id="@+id/unknown"
+        />
+    </RadioGroup>
+
+    <TextView android:id="@+id/sex"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:textSize="40dp"/>
+
+    <EditText android:id="@+id/edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="请输入文字"
+              android:textSize="20dp"
+              android:inputType="number"/>
+    <EditText android:id="@+id/edit_text2"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="请输入文字2"
+              android:textSize="20dp"
+              android:inputType="number"/>
+    <TextView android:id="@+id/test5"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="20dp"
+              android:paddingLeft="15dp"
+    />
+</LinearLayout>

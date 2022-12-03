@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/white"
+>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="280dp"
+              android:text="注册"
+              android:textSize="50sp"
+              android:textStyle="bold"
+              android:gravity="center"
+              android:textColor="@color/black"
+    >
+    </TextView>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="horizontal"
+    >
+        <TextView android:layout_width="100dp"
+                  android:text="姓名"
+                  style="@style/textStyle_01"
+                  android:gravity="center"
+                  android:layout_height="match_parent">
+        </TextView>
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:id="@+id/name"
+                  android:colorControlNormal ="@color/black"
+        >
+            <requestFocus ></requestFocus>
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="horizontal"
+    >
+        <TextView android:layout_width="100dp"
+                  android:text="身份证号"
+                  style="@style/textStyle_01"
+                  android:gravity="center"
+                  android:layout_height="match_parent">
+        </TextView>
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:id="@+id/id_code"
+
+                  android:colorControlNormal="@color/huise"
+        >
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="horizontal"
+    >
+        <TextView android:layout_width="100dp"
+                  android:text="手机号"
+                  style="@style/textStyle_01"
+                  android:gravity="center"
+                  android:layout_height="match_parent">
+        </TextView>
+        <EditText android:layout_width="match_parent"
+                  android:id="@+id/phone"
+                  android:layout_height="match_parent"
+                  android:textColor="@color/black"
+                  android:colorControlNormal="@color/huise"
+        >
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="horizontal"
+    >
+        <TextView android:layout_width="100dp"
+                  android:text="性别"
+                  style="@style/textStyle_01"
+                  android:gravity="center"
+                  android:layout_height="match_parent">
+        </TextView>
+        <RadioGroup android:id="@+id/sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+        >
+        <RadioButton android:id="@+id/man"
+                     android:layout_width="wrap_content"
+                     android:layout_weight="1"
+                     android:layout_height="match_parent"
+                     android:buttonTint="@color/black"
+
+                     android:text="男生"
+                     style="@style/textStyle_01"
+
+        />
+        <RadioButton android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:buttonTint="@color/black"
+                     android:text="女生"
+                     style="@style/textStyle_01"
+                     android:id="@+id/woman"
+        />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="horizontal"
+    >
+        <TextView android:layout_width="100dp"
+                  android:text="出生日期"
+                  style="@style/textStyle_01"
+                  android:gravity="center"
+                  android:layout_height="match_parent">
+        </TextView>
+        <Button
+                android:id="@+id/time_b"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="选择日期"
+                android:gravity="center"
+                android:textSize="20sp"/>
+    </LinearLayout>
+    <Button android:layout_width="200dp"
+            android:id="@+id/btn"
+            android:layout_height="50dp"
+            android:text="注册"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+    ></Button>
+</LinearLayout>

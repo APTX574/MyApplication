@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textStyle_01">  <!--字体一 样式-->
+        <item name="android:textSize"> 20dp</item>  <!--设置大小-->
+        <item name="android:textColor">@color/black</item>   <!--设置颜色-->
+    </style>
+</resources>

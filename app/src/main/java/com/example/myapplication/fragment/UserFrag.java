@@ -1,8 +1,7 @@
 package com.example.myapplication.fragment;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.annotation.SuppressLint;
+import android.content.*;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.Login;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.receiver.MsgReceiver;
 import com.example.myapplication.util.MyImageView;
 
 import java.util.*;
@@ -29,9 +29,11 @@ public class UserFrag extends Fragment {
     SharedPreferences sp;
     TextView user_name;
     TextView user_phone;
+    View view;
+    BroadcastReceiver msgReceiver;
+
 
     @Override
-
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         itemList = new ArrayList<>();
@@ -45,9 +47,24 @@ public class UserFrag extends Fragment {
         map1.put("image", String.valueOf(R.drawable.exit));
         itemList.add(map1);
         sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        msgReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                String action = intent.getAction();
+                if ("flush".equals(action)) {
+                    onResume();
+                }
+            }
+        };
+        IntentFilter intentFilter;
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("flush");
+        context.registerReceiver(msgReceiver, intentFilter);
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,6 +95,7 @@ public class UserFrag extends Fragment {
         }
         ListView listView = view.findViewById(R.id.list);
         listView.setAdapter(itemListAdapter);
+        this.view = view;
         return view;
     }
 
@@ -86,8 +104,24 @@ public class UserFrag extends Fragment {
         return !(Objects.equals(userName, ""));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
+        String username = sp.getString("username", "");
+        String phone = sp.getString("phone", "");
+        String image1 = sp.getString("image", "19212121");
+        user_name = view.findViewById(R.id.user_name);
+        user_phone = view.findViewById(R.id.user_phone);
+        user_phone.setText("账号：" + phone);
+        user_name.setText(username);
+        Map<String, String> map = itemList.get(1);
+        if (Objects.equals(username, "")) {
+            map.put("text", "点击登录");
+        } else {
+            map.put("text", "退出登录");
+        }
+        MyImageView image = view.findViewById(R.id.image);
+        image.setImageURL("https://avatars.githubusercontent.com/u/" + image1 + "?s=64&v=4");
 
         super.onResume();
     }
@@ -95,5 +129,11 @@ public class UserFrag extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        context.unregisterReceiver(msgReceiver);
     }
 }

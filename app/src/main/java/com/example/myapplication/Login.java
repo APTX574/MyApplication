@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +15,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplication.receiver.MsgReceiver;
 import com.example.myapplication.util.Util;
+import jnr.ffi.annotations.In;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -41,6 +45,7 @@ public class Login extends AppCompatActivity implements DatePickerDialog.OnDateS
         idCode = findViewById(R.id.id_code);
         phone = findViewById(R.id.phone);
         findViewById(R.id.btn).setOnClickListener(this);
+
     }
 
     @Override
@@ -73,6 +78,9 @@ public class Login extends AppCompatActivity implements DatePickerDialog.OnDateS
             edit.apply();
             Util.toast("注册成功",Login.this);
             setResult(888);
+            Intent intent=new Intent();
+            intent.setAction("flush");
+            sendBroadcast(intent);
             this.finish();
         }
     }

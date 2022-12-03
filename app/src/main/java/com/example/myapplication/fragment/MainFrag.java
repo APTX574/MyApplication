@@ -13,6 +13,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.util.Util;
 import com.example.myapplication.util.Web3Util;
 
+import java.math.BigInteger;
+
 /**
  * @author aptx
  * @date 2022/12/03 02:08
@@ -39,8 +41,10 @@ public class MainFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.main_btn) {
-            String concent = String.valueOf(Web3Util.getBalance("0xbE447E5A634217ff1ed3284D11f49fEcd227d44e"));
-            Util.toast(concent, context);
+//            BigInteger concent = Web3Util.addUser(context,"1212","1212");
+            String concent = Web3Util.getUser(context,"1212");
+            Util.toast(String.valueOf(concent), context);
+
         }
     }
 }

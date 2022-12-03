@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.content.IntentFilter;
+import android.os.StrictMode;
 import android.view.WindowManager;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,11 @@ public class MainActivity extends BarColor {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         fragments = new Fragment[3];
         fragments[0] = new SettingUserFrag();
         fragments[1] = new MainFrag();

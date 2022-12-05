@@ -46,7 +46,7 @@ public class MainFrag extends Fragment implements View.OnClickListener {
             Map<String, String> map = new HashMap<>();
             map.put("id", String.valueOf(i));
             map.put("title", "我是第" + i+"个疫苗");
-            map.put("text", "这个是疫苗的介绍：九价HPV疫苗，是用于预防人乳头瘤病毒（HPV）感染引起的宫颈癌，可以预防6、 11、 16、 18、 31、 33、 45、 52和58型共9种病毒，涵盖90%以上的宫颈癌。 疫苗于2014年在美国获批上市。 2018年4月28日，国家药品监督管理局有条件批准用于预防宫颈癌的九价HPV疫苗在中国上市。 接种疫苗是一级预防，筛查是二级预防，二者同等重要。 因此，不可因接种疫苗，而放松宫颈癌筛查措施。 截至2022年8月，我国批准上市的九价HPV疫苗，其接种适应年龄范围是9至45岁适龄女性女性。");
+            map.put("text", "截至时间：2022年12月5日 14:20\n总名额：12人");
             list.add(map);
 
         }

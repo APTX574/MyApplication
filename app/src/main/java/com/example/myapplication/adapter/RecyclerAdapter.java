@@ -67,6 +67,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         public TextView tv2;
         public int id;
         public int status = 0;
+        ValueAnimator animator;
+
 
         public Holder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -83,65 +85,51 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             LinearLayout l_v = (LinearLayout) v;
-            int l=14;
+            int l = DipUtils.dip2px(context, 14);
             View c_v = l_v.findViewById(R.id.card_view);
             Holder tag1 = (Holder) v.getTag();
             ViewGroup.LayoutParams layoutParams = l_v.getLayoutParams();
             ViewGroup.LayoutParams layoutParams1 = c_v.getLayoutParams();
-            if (event.getAction() == MotionEvent.ACTION_UP) {
-                if (tag1.status == 0) {
-                    System.out.println(layoutParams.height);
-
-                    ValueAnimator animator =
-                            ValueAnimator.ofInt(0, DipUtils.dip2px(context,l));
-//                    animator.setInterpolator();
+            System.out.println("l=" + l);
+            if (event.getAction() == MotionEvent.ACTION_UP ||
+                    event.getAction() == MotionEvent.ACTION_OUTSIDE ||
+                    event.getAction() == MotionEvent.ACTION_CANCEL) {
+                if (tag1.status == 0 && (animator == null || !animator.isRunning())) {
+                    System.out.println("height=" + layoutParams.height);
+                    animator = ValueAnimator.ofInt(0, l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
                         int animatedValue = (int) an.getAnimatedValue();
-                        System.out.println(animatedValue);
                         layoutParams.height = layoutParams.height + animatedValue;
-//                        c_v.setLayoutParams(layoutParams1);
                         l_v.setLayoutParams(layoutParams);
 
                     });
                     animator.start();
                     tag1.status = 1;
-                } else {
-                    ValueAnimator animator = ValueAnimator.ofInt(0,
-                            -DipUtils.dip2px(context,l));
+                } else if ((animator == null || !animator.isRunning())) {
+                    animator = ValueAnimator.ofInt(0, -l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
                         int animatedValue = (int) an.getAnimatedValue();
                         System.out.println(animatedValue);
                         layoutParams.height = layoutParams.height + animatedValue;
-//                        c_v.setLayoutParams(layoutParams1);
                         l_v.setLayoutParams(layoutParams);
-
                     });
                     animator.start();
                     tag1.status = 0;
                 }
                 c_v.setBackgroundColor(Color.parseColor("#ffffff"));
-                                    c_v.setOutlineProvider(new ViewOutlineProvider() {
-                        @Override
-                        public void getOutline(View view, Outline outline) {
-                            outline.setRoundRect(0, 0, view.getWidth(),
-                                    view.getHeight(), DipUtils.dip2px(context,8));
-                        }
-                    });
-                    c_v.setClipToOutline(true);
-                c_v.performClick();
-                return true;
-            } else if ((event.getAction() == MotionEvent.ACTION_OUTSIDE || event.getAction() == MotionEvent.ACTION_CANCEL)) {
-                c_v.setBackgroundColor(Color.parseColor("#ffffff"));
-                                    c_v.setOutlineProvider(new ViewOutlineProvider() {
-                        @Override
-                        public void getOutline(View view, Outline outline) {
-                            outline.setRoundRect(0, 0, view.getWidth(),
-                                    view.getHeight(), DipUtils.dip2px(context,8));
-                        }
-                    });
-                    c_v.setClipToOutline(true);
+                c_v.setOutlineProvider(new ViewOutlineProvider() {
+                    @Override
+                    public void getOutline(View view, Outline outline) {
+                        outline.setRoundRect(0, 0, view.getWidth(),
+                                view.getHeight(), DipUtils.dip2px(context, 8));
+                    }
+                });
+                c_v.setClipToOutline(true);
+                if (!(event.getAction() == MotionEvent.ACTION_OUTSIDE || event.getAction() == MotionEvent.ACTION_CANCEL)) {
+                    c_v.performClick();
+                }
                 return true;
             } else if ((event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)) {
                 c_v.setBackgroundColor(Color.parseColor("#e6e6e6"));

@@ -1,16 +1,18 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.ScaleAnimation;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.Login;
 import com.example.myapplication.R;
 
@@ -22,7 +24,7 @@ import java.util.Objects;
  * @author aptx
  * @date 2022/12/03 16:22
  */
-public class ItemListAdapter extends BaseAdapter implements View.OnClickListener {
+public class ItemListAdapter extends BaseAdapter implements View.OnClickListener, View.OnTouchListener {
     List<Map<String, String>> itemList;
     Context context;
     Holder holder;
@@ -62,6 +64,7 @@ public class ItemListAdapter extends BaseAdapter implements View.OnClickListener
         holder.tv.setText(itemList.get(position).get("text"));
         holder.image.setImageResource(Integer.parseInt(Objects.requireNonNull(itemList.get(position).get("image"))));
         convertView.setOnClickListener(this);
+        convertView.setOnTouchListener(this);
         return convertView;
     }
 
@@ -84,11 +87,32 @@ public class ItemListAdapter extends BaseAdapter implements View.OnClickListener
         if (text.toString().equals("我的预约")) {
 
         }
+        v.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            v.setBackgroundColor(Color.parseColor("#ffffff"));
+            ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
+            v.performClick();
+            return true;
+        } else if (event.getAction() == MotionEvent.ACTION_OUTSIDE || event.getAction() == MotionEvent.ACTION_CANCEL) {
+            v.setBackgroundColor(Color.parseColor("#ffffff"));
+            return true;
+
+        } else if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+            v.setBackgroundColor(Color.parseColor("#e6e6e6"));
+            return true;
+        }
+        return true;
     }
 }
 
 class Holder {
     public TextView tv;
+    public int type = 0;
     public ImageView image;
 }
 

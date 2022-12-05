@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity implements DatePickerDialog.OnDateS
             edit.putString("id", text_id.toString());
             edit.putString("phone", text_phone.toString());
             edit.putString("birthday", time_str);
-            edit.putString("image", String.valueOf(new Random().nextInt(1000000000) / 10000000));
+            edit.putString("image", String.valueOf(new Random().nextInt(4) ));
             edit.apply();
             Util.toast("注册成功",Login.this);
             setResult(888);

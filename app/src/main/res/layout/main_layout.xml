@@ -22,31 +22,38 @@
 
         />
     </RelativeLayout>
-    <ScrollView android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/huise">
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical"
-                      android:fitsSystemWindows="true"
-                      tools:ignore="ScrollViewSize"
-                      android:background="@color/huise">
+    <!--    <ScrollView android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:background="@color/huise">-->
+    <!--        <LinearLayout android:layout_width="match_parent"-->
+    <!--                      android:layout_height="match_parent"-->
+    <!--                      android:orientation="vertical"-->
+    <!--                      android:fitsSystemWindows="true"-->
+    <!--                      tools:ignore="ScrollViewSize"-->
+    <!--                      android:background="@color/huise">-->
 
-<!--            <ListView android:id="@+id/list"-->
-<!--                      android:layout_marginTop="1dp"-->
-<!--                      android:layout_width="match_parent"-->
-<!--                      android:layout_height="800dp">-->
-<!--            </ListView>-->
-            <Button android:layout_width="match_parent"
-                    android:id="@+id/main_btn"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="1dp"
-                    android:background="@color/white"
-                    android:text="测试"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="24dp"
-            ></Button>
-        </LinearLayout>
-    </ScrollView>
+    <!--&lt;!&ndash;            <ListView android:id="@+id/list"&ndash;&gt;-->
+    <!--&lt;!&ndash;                      android:layout_marginTop="1dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                      android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                      android:layout_height="800dp">&ndash;&gt;-->
+    <!--&lt;!&ndash;            </ListView>&ndash;&gt;-->
+    <!--            <Button android:layout_width="match_parent"-->
+    <!--                    android:id="@+id/main_btn"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:layout_marginTop="1dp"-->
+    <!--                    android:background="@color/white"-->
+    <!--                    android:text="测试"-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/black"-->
+    <!--                    android:textSize="24dp"-->
+    <!--            ></Button>-->
+    <!--        </LinearLayout>-->
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler_view"
+    >
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <!--</ScrollView>-->
 </LinearLayout>

@@ -3,14 +3,15 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_height="50dp"
+              android:id="@+id/item_linear_layout"
               android:orientation="horizontal"
               android:fitsSystemWindows="true"
               android:background="@color/white">
     <ImageView android:layout_width="20dp"
                android:layout_height="20dp"
                android:id="@+id/item_image"
-               android:layout_marginTop="15dp"
                android:layout_marginStart="15dp"
+               android:layout_gravity="center"
                android:src="@drawable/fang"
     >
     </ImageView>

@@ -13,4 +13,5 @@
     <color name="theme">#FF1F7DF7</color>
     <color name="transparent">#00000000</color>
     <color name="gray_light">#FFE0E0E0</color>
+    <color name="green_light">#2d747a</color>
 </resources>

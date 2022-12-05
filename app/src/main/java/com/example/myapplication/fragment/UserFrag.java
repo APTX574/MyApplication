@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.Login;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.receiver.MsgReceiver;
+import com.example.myapplication.adapter.ItemListAdapter;
 import com.example.myapplication.util.MyImageView;
 
 import java.util.*;
@@ -31,6 +30,8 @@ public class UserFrag extends Fragment {
     TextView user_phone;
     View view;
     BroadcastReceiver msgReceiver;
+    ItemListAdapter itemListAdapter;
+
 
 
     @Override
@@ -80,8 +81,8 @@ public class UserFrag extends Fragment {
         View view = inflater.inflate(R.layout.user_layout, container, false);
         MyImageView image = view.findViewById(R.id.image);
 
-        ItemListAdapter itemListAdapter = new ItemListAdapter(itemList, context);
-        image.setImageURL("https://avatars.githubusercontent.com/u/" + image1 + "?s=64&v=4");
+        itemListAdapter = new ItemListAdapter(itemList, context);
+        image.setImageURL("https://images.nowcoder.com/head/"+image1+"photo.jpg?x-oss-process=image/resize,m_mfit,h_100,w_100");
 
         user_name = view.findViewById(R.id.user_name);
         user_phone = view.findViewById(R.id.user_phone);
@@ -120,8 +121,11 @@ public class UserFrag extends Fragment {
         } else {
             map.put("text", "退出登录");
         }
+        ListView listView = view.findViewById(R.id.list);
+        listView.setAdapter(itemListAdapter);
         MyImageView image = view.findViewById(R.id.image);
-        image.setImageURL("https://avatars.githubusercontent.com/u/" + image1 + "?s=64&v=4");
+        image.setImageURL("https://images.nowcoder.com/head/"+image1+"photo.jpg?x-oss-process=image/resize,m_mfit,h_100,w_100");
+
 
         super.onResume();
     }

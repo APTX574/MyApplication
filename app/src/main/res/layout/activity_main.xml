@@ -6,7 +6,7 @@
         android:fitsSystemWindows="true"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/title_bar"/>
+    <include layout="@layout/title_bar" android:id="@+id/bar"/>
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPage"

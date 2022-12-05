@@ -1,59 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
-              android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:fitsSystemWindows="true"
-              android:background="@color/white">
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@color/white">
-        <TextView android:layout_width="200dp"
-                  android:id="@+id/user_name"
-                  android:layout_height="40dp"
-                  android:text="疫苗预约"
-                  android:textColor="@color/black"
-                  android:textSize="24sp"
-                  android:textStyle="bold"
-                  android:layout_marginStart="20dp"
-                  android:layout_marginTop="20dp"
-                  android:paddingTop="3dp"
-                  android:paddingStart="15dp"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:background="@color/white"
 
-        />
-    </RelativeLayout>
-    <!--    <ScrollView android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:background="@color/huise">-->
-    <!--        <LinearLayout android:layout_width="match_parent"-->
-    <!--                      android:layout_height="match_parent"-->
-    <!--                      android:orientation="vertical"-->
-    <!--                      android:fitsSystemWindows="true"-->
-    <!--                      tools:ignore="ScrollViewSize"-->
-    <!--                      android:background="@color/huise">-->
-
-    <!--&lt;!&ndash;            <ListView android:id="@+id/list"&ndash;&gt;-->
-    <!--&lt;!&ndash;                      android:layout_marginTop="1dp"&ndash;&gt;-->
-    <!--&lt;!&ndash;                      android:layout_width="match_parent"&ndash;&gt;-->
-    <!--&lt;!&ndash;                      android:layout_height="800dp">&ndash;&gt;-->
-    <!--&lt;!&ndash;            </ListView>&ndash;&gt;-->
-    <!--            <Button android:layout_width="match_parent"-->
-    <!--                    android:id="@+id/main_btn"-->
-    <!--                    android:layout_height="match_parent"-->
-    <!--                    android:layout_marginTop="1dp"-->
-    <!--                    android:background="@color/white"-->
-    <!--                    android:text="测试"-->
-    <!--                    android:textStyle="bold"-->
-    <!--                    android:textColor="@color/black"-->
-    <!--                    android:textSize="24dp"-->
-    <!--            ></Button>-->
-    <!--        </LinearLayout>-->
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+>
+    <FrameLayout
             android:layout_height="match_parent"
-            android:id="@+id/recycler_view"
+                 android:layout_width="match_parent"
+            android:background="@color/white"
+
+    >
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
     >
 
-    </androidx.recyclerview.widget.RecyclerView>
-    <!--</ScrollView>-->
-</LinearLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:id="@+id/r_l"
+                        android:layout_height="80dp"
+                        android:background="@color/white">
+            <TextView android:layout_width="200dp"
+                      android:id="@+id/user_name"
+                      android:layout_height="40dp"
+                      android:text="疫苗预约"
+                      android:textColor="@color/black"
+                      android:textSize="24sp"
+                      android:textStyle="bold"
+                      android:layout_marginStart="20dp"
+                      android:layout_marginTop="20dp"
+                      android:paddingTop="3dp"
+                      android:paddingStart="15dp"
+
+            />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycler_view"
+        >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="355dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/add_card"
+            android:background="@color/white"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="420dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_height="600dp"
+            app:cardElevation="50dp">
+        <Button android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="hhh"
+        />
+    </androidx.cardview.widget.CardView>
+    </FrameLayout>
+    <ImageView android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:id="@+id/plus"
+               android:src="@drawable/plus"
+               android:layout_marginTop="22dp"
+               android:layout_marginStart="350dp"
+               android:layout_marginEnd="10dp"
+               android:shadowDx="5"
+               android:shadowDy="5"
+               android:shadowRadius="10"
+    />
+</FrameLayout>

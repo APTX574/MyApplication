@@ -41,7 +41,7 @@ public class UserFrag extends Fragment {
         context = getActivity();
         Map<String, String> map = new HashMap<>();
         map.put("text", "我的预约");
-        map.put("image", String.valueOf(R.drawable.fang));
+        map.put("image", String.valueOf(R.drawable.user));
         itemList.add(map);
         Map<String, String> map1 = new HashMap<>();
         map1.put("text", "点击登录");

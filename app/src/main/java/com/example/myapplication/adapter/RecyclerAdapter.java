@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
@@ -74,10 +75,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             super(itemView);
             tv1 = itemView.findViewById(R.id.card_title);
             tv2 = itemView.findViewById(R.id.card_text);
-//            View viewById = itemView.findViewById(R.id.card_view);
-//            ViewGroup.LayoutParams layoutParams = viewById.getLayoutParams();
-//            layoutParams.width = layoutParams.width;
-//            viewById.setLayoutParams(layoutParams);
             itemView.setTag(this);
             itemView.setOnTouchListener(this);
         }
@@ -85,17 +82,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             LinearLayout l_v = (LinearLayout) v;
+            int action = event.getAction();
+            System.out.println(action);
             int l = DipUtils.dip2px(context, 14);
             View c_v = l_v.findViewById(R.id.card_view);
             Holder tag1 = (Holder) v.getTag();
             ViewGroup.LayoutParams layoutParams = l_v.getLayoutParams();
-            ViewGroup.LayoutParams layoutParams1 = c_v.getLayoutParams();
-            System.out.println("l=" + l);
-            if (event.getAction() == MotionEvent.ACTION_UP ||
-                    event.getAction() == MotionEvent.ACTION_OUTSIDE ||
-                    event.getAction() == MotionEvent.ACTION_CANCEL) {
-                if (tag1.status == 0 && (animator == null || !animator.isRunning())) {
-                    System.out.println("height=" + layoutParams.height);
+            if (action == MotionEvent.ACTION_UP ||
+                    action == MotionEvent.ACTION_OUTSIDE ||
+                    action == MotionEvent.ACTION_CANCEL) {
+                if (tag1.status == 0 && (animator == null || !animator.isRunning())
+                &&(action != MotionEvent.ACTION_OUTSIDE && action != MotionEvent.ACTION_CANCEL)) {
                     animator = ValueAnimator.ofInt(0, l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
@@ -106,12 +103,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     });
                     animator.start();
                     tag1.status = 1;
-                } else if ((animator == null || !animator.isRunning())) {
+                } else if (tag1.status==1&&(animator == null || !animator.isRunning())&&(action==MotionEvent.ACTION_UP)) {
                     animator = ValueAnimator.ofInt(0, -l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
                         int animatedValue = (int) an.getAnimatedValue();
-                        System.out.println(animatedValue);
                         layoutParams.height = layoutParams.height + animatedValue;
                         l_v.setLayoutParams(layoutParams);
                     });
@@ -127,11 +123,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     }
                 });
                 c_v.setClipToOutline(true);
-                if (!(event.getAction() == MotionEvent.ACTION_OUTSIDE || event.getAction() == MotionEvent.ACTION_CANCEL)) {
+                if (!(action == MotionEvent.ACTION_OUTSIDE || action == MotionEvent.ACTION_CANCEL)) {
                     c_v.performClick();
                 }
                 return true;
-            } else if ((event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE)) {
+            } else if ((action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_MOVE)) {
                 c_v.setBackgroundColor(Color.parseColor("#e6e6e6"));
                 return true;
             }

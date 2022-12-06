@@ -9,7 +9,8 @@
               android:background="@color/huise">
     <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
@@ -17,7 +18,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             app:cardCornerRadius="@dimen/radius"
-            app:cardElevation="4dp"
+            app:cardElevation="3dp"
     >
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"

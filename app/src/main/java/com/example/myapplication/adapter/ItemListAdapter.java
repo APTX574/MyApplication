@@ -87,19 +87,19 @@ public class ItemListAdapter extends BaseAdapter implements View.OnClickListener
         if (text.toString().equals("我的预约")) {
 
         }
-        v.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        v.setBackgroundColor(Color.parseColor("#FFF5F8"));
 
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_UP) {
-            v.setBackgroundColor(Color.parseColor("#ffffff"));
+            v.setBackgroundColor(Color.parseColor("#FFF5F8"));
             ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
             v.performClick();
             return true;
         } else if (event.getAction() == MotionEvent.ACTION_OUTSIDE || event.getAction() == MotionEvent.ACTION_CANCEL) {
-            v.setBackgroundColor(Color.parseColor("#ffffff"));
+            v.setBackgroundColor(Color.parseColor("#FFF5F8"));
             return true;
 
         } else if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {

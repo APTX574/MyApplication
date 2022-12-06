@@ -57,7 +57,7 @@ public class MainFrag extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_layout, container, false);
         page = view;
-        System.out.println("asdasdasddddddddddddddddd");
+        System.out.println("asdasdasF2F9FAF2F9FAF2F9FA");
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         List<Map<String, String>> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -75,7 +75,7 @@ public class MainFrag extends Fragment implements View.OnClickListener {
         recyclerView.setAdapter(recyclerAdapter);
         ImageView plus = view.findViewById(R.id.plus);
         addCard = view.findViewById(R.id.add_card);
-        addCard.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        addCard.setBackgroundColor(Color.parseColor("#FFF5F0"));
         addCard.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
@@ -100,7 +100,7 @@ public class MainFrag extends Fragment implements View.OnClickListener {
         ImageView v=(ImageView) v1;
         if (v.getId() == R.id.plus && ((int) v.getTag()) == 0) {
             float x = 860;
-            float y = 310;
+            float y = 295;
             System.out.println(x1 + "aaaaaaaa");
             System.out.println(DipUtils.dip2px(context, 20));
             ValueAnimator animator = ValueAnimator.ofFloat(0, 1);

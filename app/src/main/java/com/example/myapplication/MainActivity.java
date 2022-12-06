@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import androidx.annotation.ColorInt;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.example.myapplication.adapter.PageAdapter;
@@ -19,7 +20,7 @@ import com.example.myapplication.fragment.UserFrag;
 import com.example.myapplication.util.BarColor;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends BarColor {
+public class MainActivity extends BarColor implements View.OnClickListener {
     ViewPager viewPager;
     View bar;
     TabLayout tabLayout;
@@ -46,7 +47,7 @@ public class MainActivity extends BarColor {
         fragments[2] = new UserFrag();
 
         viewPager = findViewById(R.id.viewPage);
-        bar = findViewById(R.id.bar);
+//        bar = findViewById(R.id.bar);
         String[] title = new String[3];
         title[0] = getString(R.string.tab0);
         title[1] = getString(R.string.tab1);
@@ -64,17 +65,11 @@ public class MainActivity extends BarColor {
                 View title = tag.findViewById(R.id.r_l);
                 String action = intent.getAction();
                 if ("show add card".equals(action)) {
-                    extracted(title, 255,59);
-                    tabLayout.setBackgroundColor(Color.parseColor("#DDDDDD"));
-                    bar.setBackgroundColor(Color.parseColor("#DDDDDD"));
-                    title.setBackgroundColor(Color.parseColor("#DDDDDD"));
+                    extracted(title, 255,221);
 
                 }
                 if ("hide add card".equals(action)) {
-                    extracted(title, 59, 255);
-                    tabLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    bar.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    title.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    extracted(title, 221, 255);
 
                 }
             }
@@ -84,6 +79,7 @@ public class MainActivity extends BarColor {
         intentFilter.addAction("show add card");
         intentFilter.addAction("hide add card");
         registerReceiver(msgReceiver, intentFilter);
+//        bar.setOnClickListener(this);
 
     }
 
@@ -92,14 +88,14 @@ public class MainActivity extends BarColor {
         valueAnimator.setDuration(500);
         valueAnimator.addUpdateListener(animation -> {
             int animatedValue = (int) valueAnimator.getAnimatedValue();
-            int i = animatedValue+animatedValue*16*16+animatedValue*16*16*16*16;
+//            int i = (animatedValue+animatedValue*256+animatedValue*65536)/16777216;
+            int i = Color.argb(255, animatedValue, animatedValue-10, animatedValue-7);
+            System.out.println(i);
             tabLayout.setBackgroundColor(i);
-            bar.setBackgroundColor(i);
+//            bar.setBackgroundColor(i);
             title.setBackgroundColor(i);
         });
-        System.out.println(title);
-        System.out.println(bar);
-        System.out.println(tabLayout);
+
         valueAnimator.start();
     }
 
@@ -109,4 +105,10 @@ public class MainActivity extends BarColor {
         unregisterReceiver(msgReceiver);
     }
 
+
+    @Override
+    public void onClick(View v) {
+        tabLayout.setBackgroundColor(Color.argb(255, 255, 255, 255));
+        System.out.println("color"+Color.parseColor("#F2F9FA"));
+    }
 }

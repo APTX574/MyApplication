@@ -114,7 +114,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     animator.start();
                     tag1.status = 0;
                 }
-                c_v.setBackgroundColor(Color.parseColor("#ffffff"));
+                c_v.setBackgroundColor(Color.parseColor("#FFFFF5F8"));
                 c_v.setOutlineProvider(new ViewOutlineProvider() {
                     @Override
                     public void getOutline(View view, Outline outline) {

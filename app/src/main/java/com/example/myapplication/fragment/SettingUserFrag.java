@@ -141,8 +141,8 @@ public class SettingUserFrag extends Fragment implements View.OnClickListener {
                     animator.start();
                     status = 0;
                 }
-                c_v.setBackgroundColor(Color.parseColor("#ffffff"));
-                layout.setBackgroundColor(Color.parseColor("#ffffff"));
+                c_v.setBackgroundColor(Color.parseColor("#FFFFF5F8"));
+                layout.setBackgroundColor(Color.parseColor("#FFFFF5F8"));
                 c_v.setOutlineProvider(new ViewOutlineProvider() {
                     @Override
                     public void getOutline(View view, Outline outline) {

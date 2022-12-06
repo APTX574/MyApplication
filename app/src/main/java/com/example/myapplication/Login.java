@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.receiver.MsgReceiver;
 import com.example.myapplication.util.Util;
+import com.example.myapplication.util.Web3Util;
 import jnr.ffi.annotations.In;
 
 import java.util.Calendar;
@@ -74,11 +75,13 @@ public class Login extends AppCompatActivity implements DatePickerDialog.OnDateS
             edit.putString("id", text_id.toString());
             edit.putString("phone", text_phone.toString());
             edit.putString("birthday", time_str);
-            edit.putString("image", String.valueOf(new Random().nextInt(4) ));
+            edit.putString("image", String.valueOf(new Random().nextInt(4)));
             edit.apply();
-            Util.toast("注册成功",Login.this);
+            Web3Util.getCon(getResources().getString(R.string.hyaddress));
+
+            Util.toast("注册成功", Login.this);
             setResult(888);
-            Intent intent=new Intent();
+            Intent intent = new Intent();
             intent.setAction("flush");
             sendBroadcast(intent);
             this.finish();

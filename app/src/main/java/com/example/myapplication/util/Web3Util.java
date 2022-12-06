@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
+import com.example.myapplication.R;
 import com.example.myapplication.Reservation_sol_reservation;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
@@ -30,6 +31,7 @@ public class Web3Util {
     static String url = "https://sepolia.infura.io/v3/42e1865458574ae9b258fc5ac9ba2371";
     static Web3j client;
     static Reservation_sol_reservation con;
+    static Credentials credentials;
 
     public static Web3j getConcent() {
         return Web3j.build(new HttpService(url));
@@ -37,15 +39,8 @@ public class Web3Util {
 
     static {
         client = getConcent();
-        Credentials credentials =
+        credentials =
                 Credentials.create("7f2a69adeb7deaa37faa76229cfc750958eaa84f6f7e480ba300e4b05e4ad10d");
-
-        con = Reservation_sol_reservation.load(
-                "0x3CffAF277d905E6414b4264cbeAbC1F0965B3abf", client,
-                credentials,
-                Convert.toWei("10", Convert.Unit.GWEI).toBigInteger(),
-                BigInteger.valueOf(100000));
-
     }
 
     public static BigInteger getGas() {
@@ -69,7 +64,7 @@ public class Web3Util {
         }
     }
 
-    public static String getUser(Context context,String id) {
+    public static String getUser(Context context, String id) {
 
 
         try {
@@ -82,9 +77,8 @@ public class Web3Util {
         }
 
     }
-    public static BigInteger addUser(Context context, String id,String name) {
 
-
+    public static BigInteger addUser(Context context, String id, String name) {
         try {
             TransactionReceipt receipt = con.register(id, name).send();
             BigInteger blockNumber = receipt.getBlockNumber();
@@ -95,6 +89,18 @@ public class Web3Util {
 
     }
 
+    public static void getCon(String address) {
+        con = Reservation_sol_reservation.load(
+                address, client,
+                credentials,
+                Convert.toWei("10", Convert.Unit.GWEI).toBigInteger(),
+                BigInteger.valueOf(100000));
+    }
+
+    public void registerUser(String pwd, String name) {
+//        TransactionReceipt send = con.register(pwd, name).send();
+        //TODO 添加合约调用函数，添加事件
+    }
 
 
 }

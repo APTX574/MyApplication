@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.os.Bundle;
@@ -52,7 +53,7 @@ public class SettingUserFrag extends Fragment implements View.OnClickListener {
             CardView card1 = view.findViewById(R.id.setting_card_1);
             SettingHolder settingHolder1 = new SettingHolder(card1.findViewById(R.id.setting_text_1)
                     , card1.findViewById(R.id.setting_image_1), card1.findViewById(R.id.setting_et_1),
-                    card1.findViewById(R.id.setting_linear_1), "0x3CffAF277d905E6414b4264cbeAbC1F0965B3abf",
+                    card1.findViewById(R.id.setting_linear_1), context.getResources().getString(R.string.hyaddress),
                     R.drawable.con0,
                     R.drawable.con1, card1);
             card1.setTag(settingHolder1);
@@ -109,7 +110,7 @@ public class SettingUserFrag extends Fragment implements View.OnClickListener {
                     action == MotionEvent.ACTION_OUTSIDE ||
                     action == MotionEvent.ACTION_CANCEL) {
                 if (status == 0 && (animator == null || !animator.isRunning())
-                        &&(action != MotionEvent.ACTION_OUTSIDE && action != MotionEvent.ACTION_CANCEL)) {
+                        && (action != MotionEvent.ACTION_OUTSIDE && action != MotionEvent.ACTION_CANCEL)) {
                     animator = ValueAnimator.ofInt(0, l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {

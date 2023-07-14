@@ -76,8 +76,16 @@ public class Login extends AppCompatActivity implements DatePickerDialog.OnDateS
             edit.putString("phone", text_phone.toString());
             edit.putString("birthday", time_str);
             edit.putString("image", String.valueOf(new Random().nextInt(4)));
+            String uuid =  Web3Util.getUUID();
+            edit.putString("pwd", uuid);
             edit.apply();
-            Web3Util.getCon(getResources().getString(R.string.hyaddress));
+
+
+            String string = getResources().getString(R.string.hyaddress);
+//            Web3Util.getCon(string);
+//            Web3Util.registerUser(uuid, text_name.toString());
+//            "0xbE447E5A634217ff1ed3284D11f49fEcd227d44e"
+//            "0x004f0a0442364a83ab3198ecdf2662debebadb44855f90a82e40aeb40439ef79"
 
             Util.toast("注册成功", Login.this);
             setResult(888);

@@ -2,11 +2,12 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
-/**
- * @title Ballot
- * @dev Implements voting process along with vote delegation
- */
 contract reservation {
+    event Answer(
+        bytes32 userId,
+        uint resid,
+        uint answer
+    );
 
     struct  Proposal {
         uint pid;
@@ -56,11 +57,12 @@ contract reservation {
         proposals[resid].joinUser[pwd]=1;
         proposals[resid].userlist[proposals[resid].countJoin++]=pwd;
     }
-    function getAnswer(uint resid,bytes32 pwd) public  view returns( uint ans ) {
+    function getAnswer(uint resid,bytes32 pwd) public   returns( uint ans ) {
         require(
             msg.sender==chairperson
             && proposals[resid].endTime<= block.timestamp ,"only charman can send add or Res is not end"
         );
+        emit Answer(pwd, resid, proposals[resid].joinUser[pwd] );
         return  proposals[resid].joinUser[pwd];
     }
     function kaijiang(uint resid) public  {

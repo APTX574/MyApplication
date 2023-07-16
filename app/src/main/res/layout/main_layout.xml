@@ -23,7 +23,7 @@
                 <TextView android:layout_width="200dp"
                           android:id="@+id/user_name"
                           android:layout_height="40dp"
-                          android:text="疫苗预约"
+                          android:text="点餐系统"
                           android:textColor="@color/black"
                           android:textSize="24sp"
                           android:textStyle="bold"

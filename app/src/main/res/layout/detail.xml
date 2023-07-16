@@ -88,24 +88,24 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
         >
-        <RadioButton android:id="@+id/man"
-                     android:layout_width="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_height="match_parent"
-                     android:buttonTint="@color/black"
+            <RadioButton android:id="@+id/man"
+                         android:layout_width="wrap_content"
+                         android:layout_weight="1"
+                         android:layout_height="match_parent"
+                         android:buttonTint="@color/black"
 
-                     android:text="男生"
-                     style="@style/textStyle_01"
+                         android:text="男生"
+                         style="@style/textStyle_01"
 
-        />
-        <RadioButton android:layout_width="wrap_content"
-                     android:layout_height="match_parent"
-                     android:layout_weight="1"
-                     android:buttonTint="@color/black"
-                     android:text="女生"
-                     style="@style/textStyle_01"
-                     android:id="@+id/woman"
-        />
+            />
+            <RadioButton android:layout_width="wrap_content"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1"
+                         android:buttonTint="@color/black"
+                         android:text="女生"
+                         style="@style/textStyle_01"
+                         android:id="@+id/woman"
+            />
         </RadioGroup>
     </LinearLayout>
 

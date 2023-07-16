@@ -60,11 +60,26 @@ public class MainFrag extends Fragment implements View.OnClickListener {
         System.out.println("asdasdasF2F9FAF2F9FAF2F9FA");
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         List<Map<String, String>> list = new ArrayList<>();
+        String[] title={"酸辣土豆丝","水蒸蛋","麻婆豆腐","辣子鸡","豆角炝茄子","招牌手撕鸡","特色小炒肉","香辣啤酒鸭","玉米排骨汤","米饭"};
+        String[] text={"酸辣土豆丝，是用土豆、辣椒、白醋，葱，姜等制作而成的川菜菜肴，色泽光亮，酸辣可口。",""};
+        String[] price={"￥5","￥6","￥3","￥15","￥5","￥16","￥15","￥12","￥10","￥1"};
+        String[] image={"https://img0.baidu.com/it/u=844385790,3799510220&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+                "https://img1.baidu.com/it/u=2911129865,424077321&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+                "https://img1.baidu.com/it/u=1356538101,26855475&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage109.360doc.com%2FDownloadImg%2F2017%2F12%2F2901%2F120383182_8_20171229011256181.jpg&refer=http%3A%2F%2Fimage109.360doc.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1692066912&t=99a435dff0fb1f7b0a81ac5f40806ec6",
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F7ed5e09c-e6a5-4a6a-d8c7-4ba4cd7bc9e4%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1692067005&t=3a657a81b58548d0c86a0012116cb1a9",
+                "https://img1.baidu.com/it/u=1870440119,2316541974&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+                "https://img1.baidu.com/it/u=1852970580,3349739581&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fss2.meipian.me%2Fusers%2F81200151%2F59a8306ae73401852370540e43b9615d.jpg%3Fmeipian-raw%2Fbucket%2Fivwen%2Fkey%2FdXNlcnMvODEyMDAxNTEvNTlhODMwNmFlNzM0MDE4NTIzNzA1NDBlNDNiOTYxNWQuanBn%2Fsign%2F4b4115ac4f510d2de2a9c037c8259c05.jpg&refer=http%3A%2F%2Fss2.meipian.me&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1692067244&t=72d3468fdcbee99c08c4be880250baa3",
+                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F0afcde3d-d51f-fdb9-a69e-c2545c61779e%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1692067334&t=6ef3b3db71dd26621194b9ca937c9403",
+                "https://preview.qiantucdn.com/dazhi/97/46/08/52g58PICUYY7CW85bWQ8w_PIC2018.jpg%21w1024_new_0"};
         for (int i = 0; i < 10; i++) {
             Map<String, String> map = new HashMap<>();
             map.put("id", String.valueOf(i));
-            map.put("title", "我是第" + i + "个疫苗");
-            map.put("text", "截至时间：2022年12月5日 14:20\n总名额：12人");
+            map.put("title", title[i]);
+            map.put("text", text[0]);
+            map.put("image", image[i]);
+            map.put("price", price[i]);
             list.add(map);
 
         }

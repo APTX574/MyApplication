@@ -2,12 +2,14 @@ package com.example.myapplication.adapter;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.view.*;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
@@ -15,6 +17,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 import com.example.myapplication.util.DipUtils;
+import com.example.myapplication.util.MyImageView;
+import com.example.myapplication.util.Util;
 import org.jetbrains.annotations.NotNull;
 import org.objectweb.asm.tree.analysis.Value;
 
@@ -53,6 +57,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         Map<String, String> map = list.get(position);
         holder.tv1.setText(map.get("title"));
         holder.tv2.setText(map.get("text"));
+        holder.price.setText(map.get("price"));
+        holder.image.setImageURL(map.get("image"));
         holder.id = Integer.parseInt(Objects.requireNonNull(map.get("id")));
 
     }
@@ -63,18 +69,30 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         return list.size();
     }
 
-    class Holder extends RecyclerView.ViewHolder implements View.OnTouchListener {
+    class Holder extends RecyclerView.ViewHolder implements View.OnTouchListener, View.OnClickListener {
         public TextView tv1;
         public TextView tv2;
+        public TextView price;
+        public Button bts;
+        public Button btp;
+        public MyImageView image;
         public int id;
         public int status = 0;
+        public int num = 0;
         ValueAnimator animator;
+        ValueAnimator animator2;
 
 
         public Holder(@NonNull @NotNull View itemView) {
             super(itemView);
             tv1 = itemView.findViewById(R.id.card_title);
             tv2 = itemView.findViewById(R.id.card_text);
+            price = itemView.findViewById(R.id.card_price);
+            btp = itemView.findViewById(R.id.card_btp);
+            bts = itemView.findViewById(R.id.card_bts);
+            image = itemView.findViewById(R.id.image);
+            bts.setOnClickListener(this);
+            btp.setOnClickListener(this);
             itemView.setTag(this);
             itemView.setOnTouchListener(this);
         }
@@ -84,7 +102,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             LinearLayout l_v = (LinearLayout) v;
             int action = event.getAction();
             System.out.println(action);
-            int l = DipUtils.dip2px(context, 14);
+            int l = DipUtils.dip2px(context, 5);
             View c_v = l_v.findViewById(R.id.card_view);
             Holder tag1 = (Holder) v.getTag();
             ViewGroup.LayoutParams layoutParams = l_v.getLayoutParams();
@@ -132,6 +150,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                 return true;
             }
             return true;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(view.getId()==R.id.card_btp||view.getId()==R.id.card_bts){
+                num++;
+                float x = bts.getX();
+                bts.setX(20);
+                if(num==1){
+                    System.out.println("11111111111");
+//                    Util.toast("asasasa",null);
+                    ViewGroup.LayoutParams layoutParams = bts.getLayoutParams();
+                    animator = ValueAnimator.ofInt(0, 20);
+                    animator.setDuration(500);
+                    animator.addUpdateListener(an -> {
+                    float animatedValue = (float) an.getAnimatedValue();
+                    bts.setX(x - (x - 10) * animatedValue);
+                        System.out.println();
+
+                    });
+                }
+            }
         }
     }
 }

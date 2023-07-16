@@ -75,7 +75,7 @@
         </LinearLayout>
 
 
-        <TextView android:layout_width="300dp"
+        <TextView android:layout_width="280dp"
                   android:layout_height="50dp"
                   android:textColor="@color/black"
                   android:layout_marginTop="120dp"
@@ -84,6 +84,19 @@
                   android:text="服务2"
                   android:paddingStart="20sp"
                   android:paddingEnd="20sp"
+                  android:gravity="center_vertical"
+        >
+        </TextView>
+        <TextView android:layout_width="20dp"
+                  android:layout_height="50dp"
+                  android:layout_marginStart="300dp"
+                  android:textColor="@color/black"
+                  android:layout_marginTop="120dp"
+                  android:textSize="12sp"
+                  android:id="@+id/card_num"
+                  android:text=""
+                  android:paddingStart="0sp"
+                  android:paddingEnd="0sp"
                   android:gravity="center_vertical"
         >
         </TextView>

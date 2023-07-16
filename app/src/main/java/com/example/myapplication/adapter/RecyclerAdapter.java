@@ -73,12 +73,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
         public TextView tv1;
         public TextView tv2;
         public TextView price;
+        public TextView num_v;
         public Button bts;
         public Button btp;
         public MyImageView image;
         public int id;
         public int status = 0;
-        public int num = 0;
+        public Integer num = 0;
         ValueAnimator animator;
         ValueAnimator animator2;
 
@@ -90,6 +91,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             price = itemView.findViewById(R.id.card_price);
             btp = itemView.findViewById(R.id.card_btp);
             bts = itemView.findViewById(R.id.card_bts);
+            num_v = itemView.findViewById(R.id.card_num);
             image = itemView.findViewById(R.id.image);
             bts.setOnClickListener(this);
             btp.setOnClickListener(this);
@@ -110,7 +112,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     action == MotionEvent.ACTION_OUTSIDE ||
                     action == MotionEvent.ACTION_CANCEL) {
                 if (tag1.status == 0 && (animator == null || !animator.isRunning())
-                &&(action != MotionEvent.ACTION_OUTSIDE && action != MotionEvent.ACTION_CANCEL)) {
+                        && (action != MotionEvent.ACTION_OUTSIDE && action != MotionEvent.ACTION_CANCEL)) {
                     animator = ValueAnimator.ofInt(0, l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
@@ -121,7 +123,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     });
                     animator.start();
                     tag1.status = 1;
-                } else if (tag1.status==1&&(animator == null || !animator.isRunning())&&(action==MotionEvent.ACTION_UP)) {
+                } else if (tag1.status == 1 && (animator == null || !animator.isRunning()) && (action == MotionEvent.ACTION_UP)) {
                     animator = ValueAnimator.ofInt(0, -l);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
@@ -132,7 +134,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                     animator.start();
                     tag1.status = 0;
                 }
-                c_v.setBackgroundColor(Color.parseColor("#FFFFF5F8"));
+//                原先
+                c_v.setBackgroundColor(Color.parseColor("#E1E6E6"));
                 c_v.setOutlineProvider(new ViewOutlineProvider() {
                     @Override
                     public void getOutline(View view, Outline outline) {
@@ -146,7 +149,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
                 }
                 return true;
             } else if ((action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_MOVE)) {
-                c_v.setBackgroundColor(Color.parseColor("#e6e6e6"));
+//                按下去
+                c_v.setBackgroundColor(Color.parseColor("#C4DAE6"));
                 return true;
             }
             return true;
@@ -154,23 +158,49 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
 
         @Override
         public void onClick(View view) {
-            if(view.getId()==R.id.card_btp||view.getId()==R.id.card_bts){
+            if (view.getId() == R.id.card_btp) {
                 num++;
+                num_v.setText(num.toString());
                 float x = bts.getX();
-                bts.setX(20);
-                if(num==1){
+                bts.setText("-");
+
+                if (num == 1) {
+                    bts.setX(btp.getX()-130);
                     System.out.println("11111111111");
-//                    Util.toast("asasasa",null);
                     ViewGroup.LayoutParams layoutParams = bts.getLayoutParams();
-                    animator = ValueAnimator.ofInt(0, 20);
+                    ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
                     animator.setDuration(500);
                     animator.addUpdateListener(an -> {
-                    float animatedValue = (float) an.getAnimatedValue();
-                    bts.setX(x - (x - 10) * animatedValue);
-                        System.out.println();
+                        System.out.println("aaaaaa");
+                        float animatedValue = (float) an.getAnimatedValue();
+                        bts.setX(x - (x - 20) * animatedValue);
+                        System.out.println(bts.getX());
 
                     });
                 }
+            }
+            if (view.getId() == R.id.card_bts&&num!=0 ) {
+                num--;
+                num_v.setText(num.toString());
+                float x = bts.getX();
+                bts.setText("-");
+                if (num == 0 ) {
+                    num_v.setText("");
+                    bts.setX(btp.getX());
+                    bts.setText("+");
+                    System.out.println("11111111111");
+                    ViewGroup.LayoutParams layoutParams = bts.getLayoutParams();
+                    ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+                    animator.setDuration(500);
+                    animator.addUpdateListener(an -> {
+                        System.out.println("aaaaaa");
+                        float animatedValue = (float) an.getAnimatedValue();
+                        bts.setX(x - (x - 20) * animatedValue);
+                        System.out.println(bts.getX());
+
+                    });
+                }
+
             }
         }
     }

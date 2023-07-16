@@ -65,11 +65,11 @@ public class MainActivity extends BarColor implements View.OnClickListener {
                 View title = tag.findViewById(R.id.r_l);
                 String action = intent.getAction();
                 if ("show add card".equals(action)) {
-                    extracted(title, 255,221);
+//                    extracted(title, 255,221);
 
                 }
                 if ("hide add card".equals(action)) {
-                    extracted(title, 221, 255);
+//                    extracted(title, 221, 255);
 
                 }
             }

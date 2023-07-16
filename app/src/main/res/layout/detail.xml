@@ -5,136 +5,151 @@
               android:orientation="vertical"
               android:background="@color/white"
 >
-    <TextView android:layout_width="match_parent"
-              android:layout_height="280dp"
-              android:text="注册"
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/theme">
+        <TextView android:layout_width="200dp"
+                  android:id="@+id/user_name"
+                  android:layout_height="40dp"
+                  android:text="松松大食堂"
+                  android:textColor="@color/white"
+                  android:textSize="24sp"
+                  android:textStyle="bold"
+                  android:layout_marginStart="20dp"
+                  android:layout_marginTop="20dp"
+                  android:paddingTop="3dp"
+                  android:paddingStart="15dp"
+
+        />
+
+    </RelativeLayout>
 
 
+    <com.example.myapplication.Image3DSwitchView
+            android:id="@+id/image_switch_view"
+            android:layout_width="match_parent"
+            android:layout_height="210dp" >
 
-              android:textSize="50sp"
-              android:textStyle="bold"
-              android:gravity="center"
-              android:textColor="@color/black"
-    >
-    </TextView>
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image1" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image2" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image3" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image4" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image5" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image6" />
+
+        <com.example.myapplication.Image3DView
+                android:id="@+id/image7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/image7" />
+
+    </com.example.myapplication.Image3DSwitchView>
+
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="50dp"
                   android:orientation="horizontal"
     >
         <TextView android:layout_width="100dp"
-                  android:text="姓名"
+                  android:text="联系方式"
                   style="@style/textStyle_01"
                   android:gravity="center"
                   android:layout_height="match_parent">
         </TextView>
-        <EditText android:layout_width="match_parent"
+        <TextView android:layout_width="match_parent"
                   android:layout_height="match_parent"
+                  android:text=" 13064771943"
+                  style="@style/textStyle_01"
+                  android:gravity="center|left"
                   android:textColor="@color/black"
-                  android:id="@+id/name"
                   android:colorControlNormal ="@color/black"
         >
-            <requestFocus ></requestFocus>
-        </EditText>
+        </TextView>
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="50dp"
                   android:orientation="horizontal"
     >
         <TextView android:layout_width="100dp"
-                  android:text="身份证号"
+                  android:text="营业时间"
                   style="@style/textStyle_01"
                   android:gravity="center"
                   android:layout_height="match_parent">
         </TextView>
-        <EditText android:layout_width="match_parent"
+        <TextView android:layout_width="match_parent"
                   android:layout_height="match_parent"
+                  android:text=" 周一至周日10:00-22:00"
+                  style="@style/textStyle_01"
+                  android:gravity="center|left"
                   android:textColor="@color/black"
-                  android:id="@+id/id_code"
-
-                  android:colorControlNormal="@color/huise"
+                  android:colorControlNormal ="@color/black"
         >
-        </EditText>
+        </TextView>
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="50dp"
+                  android:layout_height="60dp"
                   android:orientation="horizontal"
     >
         <TextView android:layout_width="100dp"
-                  android:text="手机号"
+                  android:text="位置"
                   style="@style/textStyle_01"
                   android:gravity="center"
                   android:layout_height="match_parent">
         </TextView>
-        <EditText android:layout_width="match_parent"
-                  android:id="@+id/phone"
+        <TextView android:layout_width="match_parent"
                   android:layout_height="match_parent"
+                  android:text="杭州电子科技大学生活区10楼北608"
+                  style="@style/textStyle_01"
+                  android:gravity="center|left"
                   android:textColor="@color/black"
-                  android:colorControlNormal="@color/huise"
+                  android:colorControlNormal ="@color/black"
         >
-        </EditText>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="50dp"
-                  android:orientation="horizontal"
-    >
-        <TextView android:layout_width="100dp"
-                  android:text="性别"
-                  style="@style/textStyle_01"
-                  android:gravity="center"
-                  android:layout_height="match_parent">
         </TextView>
-        <RadioGroup android:id="@+id/sex"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-        >
-            <RadioButton android:id="@+id/man"
-                         android:layout_width="wrap_content"
-                         android:layout_weight="1"
-                         android:layout_height="match_parent"
-                         android:buttonTint="@color/black"
-
-                         android:text="男生"
-                         style="@style/textStyle_01"
-
-            />
-            <RadioButton android:layout_width="wrap_content"
-                         android:layout_height="match_parent"
-                         android:layout_weight="1"
-                         android:buttonTint="@color/black"
-                         android:text="女生"
-                         style="@style/textStyle_01"
-                         android:id="@+id/woman"
-            />
-        </RadioGroup>
     </LinearLayout>
+
+
+
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="50dp"
                   android:orientation="horizontal"
     >
-        <TextView android:layout_width="100dp"
-                  android:text="出生日期"
-                  style="@style/textStyle_01"
-                  android:gravity="center"
-                  android:layout_height="match_parent">
-        </TextView>
-        <Button
-                android:id="@+id/time_b"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="选择日期"
-                android:gravity="center"
-                android:textSize="20sp"/>
-    </LinearLayout>
-    <Button android:layout_width="200dp"
-            android:id="@+id/btn"
-            android:layout_height="50dp"
-            android:text="注册"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/white"
-            android:textSize="24dp"
-            android:background="@drawable/button_selector"
-    />
+
+</LinearLayout>
 </LinearLayout>

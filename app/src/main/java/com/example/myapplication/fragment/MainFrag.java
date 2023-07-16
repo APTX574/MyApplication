@@ -61,8 +61,17 @@ public class MainFrag extends Fragment implements View.OnClickListener {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         List<Map<String, String>> list = new ArrayList<>();
         String[] title={"酸辣土豆丝","水蒸蛋","麻婆豆腐","辣子鸡","豆角炝茄子","招牌手撕鸡","特色小炒肉","香辣啤酒鸭","玉米排骨汤","米饭"};
-        String[] text={"酸辣土豆丝，是用土豆、辣椒、白醋，葱，姜等制作而成的川菜菜肴，色泽光亮，酸辣可口。",""};
-        String[] price={"￥5","￥6","￥3","￥15","￥5","￥16","￥15","￥12","￥10","￥1"};
+        String[] text={"酸辣土豆丝，是用土豆、辣椒、白醋，葱，姜等制作而成的川菜菜肴，色泽光亮，酸辣可口。",
+                "水蒸蛋是传统美食之一，是一道老少皆宜的家常食谱，鲜嫩爽滑、色泽光鲜、营养丰富。",
+                "麻婆豆腐是四川地区传统名菜之一，将川菜麻辣味型的特点展现的淋漓尽致。",
+                "辣子鸡是一道经典的中国家常菜，以整鸡为主料，加上葱、干辣椒、花椒、盐、胡椒、味精等多种材料精制而成。",
+                "豆角炝茄子是一道家常炒菜，茄子和豆角两者搭配富有营养，且口感香辣爽口。",
+                "手撕鸡是一道客家传统美食。金黄的鸡皮上晶莹而散发甘香，肉质细腻，油脂适中，鲜美含汁，嚼之既不油腻也不柴硬。",
+                "农家小炒肉，也就是青辣椒炒肉，是一道以青椒、猪肉味主要原料，炒制而成的美味家常菜。",
+                "香辣啤酒鸭是一道美食，主要材料有鸭、啤酒、青红椒，辅料有姜，大蒜，干红椒，八角，花椒等。",
+                "玉米排骨汤是一道食补汤品，玉米可降低血液胆固醇浓度并防止其沉积于血管壁，促进人们对维生素和钙的吸收。",
+                "米饭，是中国人日常饮食中的主角之一，主食之一，主要成分为淀粉。"};
+        String[] price={"￥5.00","￥6.00","￥3.00","￥15.00","￥5.00","￥16.00","￥15.00","￥12.00","￥10.00","￥1.00"};
         String[] image={"https://img0.baidu.com/it/u=844385790,3799510220&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
                 "https://img1.baidu.com/it/u=2911129865,424077321&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
                 "https://img1.baidu.com/it/u=1356538101,26855475&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
@@ -77,7 +86,7 @@ public class MainFrag extends Fragment implements View.OnClickListener {
             Map<String, String> map = new HashMap<>();
             map.put("id", String.valueOf(i));
             map.put("title", title[i]);
-            map.put("text", text[0]);
+            map.put("text", text[i]);
             map.put("image", image[i]);
             map.put("price", price[i]);
             list.add(map);

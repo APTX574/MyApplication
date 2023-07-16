@@ -12,8 +12,8 @@
     <string name="phone">拨打电话</string>
     <string name="send">传送数据</string>
     <string name="title">九价摇号</string>
-    <string name="tab0">设置</string>
-    <string name="tab1">首页</string>
+    <string name="tab0">首页</string>
+    <string name="tab1">点菜</string>
     <string name="tab2">我的</string>
     <string name="hyaddress">0x36dE876488B16E542bb6e2bA872A6AaBBcdb780c</string>
 </resources>

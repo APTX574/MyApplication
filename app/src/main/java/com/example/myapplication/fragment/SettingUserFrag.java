@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.*;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import com.example.myapplication.Image3DSwitchView;
 import com.example.myapplication.R;
 import com.example.myapplication.util.DipUtils;
 
@@ -27,6 +29,8 @@ import com.example.myapplication.util.DipUtils;
 public class SettingUserFrag extends Fragment implements View.OnClickListener {
     Context context;
     SharedPreferences sp;
+
+
 
 
     @Override
@@ -40,34 +44,44 @@ public class SettingUserFrag extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.setting_layout, container, false);
+        View view = inflater.inflate(R.layout.detail, container, false);
         {
-            CardView card0 = view.findViewById(R.id.setting_card_0);
-            SettingHolder settingHolder = new SettingHolder(card0.findViewById(R.id.setting_text_0)
-                    , card0.findViewById(R.id.setting_image_0), card0.findViewById(R.id.setting_et_0),
-                    card0.findViewById(R.id.setting_linear_0), "https://sepolia.infura.io/v3/42e1865458574ae9b258fc5ac9ba2371",
-                    R.drawable.eth0,
-                    R.drawable.eth1, card0);
-            card0.setTag(settingHolder);
-            card0.setOnClickListener(this);
-            CardView card1 = view.findViewById(R.id.setting_card_1);
-            SettingHolder settingHolder1 = new SettingHolder(card1.findViewById(R.id.setting_text_1)
-                    , card1.findViewById(R.id.setting_image_1), card1.findViewById(R.id.setting_et_1),
-                    card1.findViewById(R.id.setting_linear_1), context.getResources().getString(R.string.hyaddress),
-                    R.drawable.con0,
-                    R.drawable.con1, card1);
-            card1.setTag(settingHolder1);
-            card1.setOnClickListener(this);
-
-            CardView card2 = view.findViewById(R.id.setting_card_2);
-            SettingHolder settingHolder2 = new SettingHolder(card2.findViewById(R.id.setting_text_2)
-                    , card2.findViewById(R.id.setting_image_2), card2.findViewById(R.id.setting_et_2),
-                    card2.findViewById(R.id.setting_linear_2), "0xbE447E5A634217ff1ed3284D11f49fEcd227d44e",
-                    R.drawable.gy0,
-                    R.drawable.gy1, card2);
-            card2.setTag(settingHolder2);
-            card2.setOnClickListener(this);
+//            CardView card0 = view.findViewById(R.id.setting_card_0);
+//            SettingHolder settingHolder = new SettingHolder(card0.findViewById(R.id.setting_text_0)
+//                    , card0.findViewById(R.id.setting_image_0), card0.findViewById(R.id.setting_et_0),
+//                    card0.findViewById(R.id.setting_linear_0), "https://sepolia.infura.io/v3/42e1865458574ae9b258fc5ac9ba2371",
+//                    R.drawable.eth0,
+//                    R.drawable.eth1, card0);
+//            card0.setTag(settingHolder);
+//            card0.setOnClickListener(this);
+//            CardView card1 = view.findViewById(R.id.setting_card_1);
+//            SettingHolder settingHolder1 = new SettingHolder(card1.findViewById(R.id.setting_text_1)
+//                    , card1.findViewById(R.id.setting_image_1), card1.findViewById(R.id.setting_et_1),
+//                    card1.findViewById(R.id.setting_linear_1), context.getResources().getString(R.string.hyaddress),
+//                    R.drawable.con0,
+//                    R.drawable.con1, card1);
+//            card1.setTag(settingHolder1);
+//            card1.setOnClickListener(this);
+//
+//            CardView card2 = view.findViewById(R.id.setting_card_2);
+//            SettingHolder settingHolder2 = new SettingHolder(card2.findViewById(R.id.setting_text_2)
+//                    , card2.findViewById(R.id.setting_image_2), card2.findViewById(R.id.setting_et_2),
+//                    card2.findViewById(R.id.setting_linear_2), "0xbE447E5A634217ff1ed3284D11f49fEcd227d44e",
+//                    R.drawable.gy0,
+//                    R.drawable.gy1, card2);
+//            card2.setTag(settingHolder2);
+//            card2.setOnClickListener(this);
         }
+        Image3DSwitchView imageSwitchView = view.findViewById(R.id.image_switch_view);
+        final Handler handler=new Handler();
+        Runnable runnable=new Runnable(){
+            @Override
+            public void run() {
+                imageSwitchView.scrollToNext();
+                handler.postDelayed(this, 2000);
+            }
+        };
+        handler.postDelayed(runnable, 2000);
         return view;
     }
 
